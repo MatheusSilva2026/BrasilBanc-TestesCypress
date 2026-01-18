@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -436,4 +437,444 @@
 
   <script src="js/script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrasilBanc - Seu Banco Digital</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🏦</div>
+        BrasilBanc
+      </div>
+      <div class="header-buttons">
+        <button class="btn btn-primary" onclick="abrirModal('criar-conta')">Abrir Conta</button>
+        <button class="btn btn-secondary" onclick="abrirModal('login')">Já tenho conta</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PÁGINA INICIAL -->
+  <div id="pagina-inicial">
+    <section class="hero">
+      <h1>Experimente mais liberdade no controle da sua vida financeira</h1>
+      <p>Crie sua conta com a gente! Conta e cartão gratuitos, saques sem custo e muito mais.</p>
+      <div class="hero-image">
+        <svg viewBox="0 0 600 400" style="width:100%">
+          <rect width="600" height="400" fill="url(#grad1)"/>
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#0066CC;stop-opacity:0.1" />
+              <stop offset="100%" style="stop-color:#00B34D;stop-opacity:0.1" />
+            </linearGradient>
+          </defs>
+          <rect x="150" y="250" width="60" height="100" fill="#00B34D" rx="5"/>
+          <rect x="230" y="200" width="60" height="150" fill="#00B34D" rx="5"/>
+          <rect x="310" y="150" width="60" height="200" fill="#00B34D" rx="5"/>
+          <circle cx="450" cy="150" r="40" fill="#FFD700" opacity="0.8"/>
+          <path d="M 430 150 L 450 130 L 470 150" stroke="#0066CC" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="vantagens">
+      <h2>Vantagens do nosso banco</h2>
+      <div class="vantagens-grid">
+        <div class="vantagem-card">
+          <div class="vantagem-icon">🎁</div>
+          <h3>Conta e cartão gratuitos</h3>
+          <p>Sem taxas de manutenção, anuidade zero no cartão de débito</p>
+        </div>
+        <div class="vantagem-card">
+          <div class="vantagem-icon">💰</div>
+          <h3>Saques sem custo</h3>
+          <p>Saque em caixas eletrônicos parceiros sem pagar nada</p>
+        </div>
+        <div class="vantagem-card">
+          <div class="vantagem-icon">⭐</div>
+          <h3>Programa de pontos</h3>
+          <p>Acumule pontos em todas as suas compras</p>
+        </div>
+        <div class="vantagem-card">
+          <div class="vantagem-icon">📱</div>
+          <h3>App completo</h3>
+          <p>Gerencie tudo pelo celular com segurança</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODAL CRIAR CONTA -->
+  <div class="modal" id="modal-criar-conta">
+    <div class="modal-content">
+      <span class="modal-close" onclick="fecharModal('criar-conta')">&times;</span>
+      <h2>Criar Nova Conta</h2>
+      <form onsubmit="criarConta(event)">
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" id="nome" required>
+        </div>
+        <div class="form-group">
+          <label>CPF (apenas números)</label>
+          <input type="text" id="cpf-cadastro" placeholder="00000000000" maxlength="11" required>
+          <small style="color:#666; font-size:12px">Digite apenas os 11 números, sem pontos ou traços</small>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label>Data de Nascimento</label>
+          <input type="date" id="data-nascimento" required>
+        </div>
+        <div class="form-group">
+          <label>Rua/Avenida</label>
+          <input type="text" id="rua" placeholder="Ex: Rua das Flores" required>
+        </div>
+        <div class="form-group">
+          <label>Número</label>
+          <input type="text" id="numero" placeholder="Ex: 123" required>
+        </div>
+        <div class="form-group">
+          <label>Bairro</label>
+          <input type="text" id="bairro" placeholder="Ex: Centro" required>
+        </div>
+        <div class="form-group">
+          <label>Cidade + UF</label>
+          <input type="text" id="cidade-uf" placeholder="Ex: São Paulo - SP" required>
+        </div>
+        <div class="form-group">
+          <label>Senha (exatamente 8 caracteres)</label>
+          <input type="password" id="senha-cadastro" maxlength="8" required>
+          <small style="color:#666; font-size:12px">A senha deve conter exatamente 8 caracteres</small>
+        </div>
+        <div class="form-group">
+          <label>Confirmar Senha</label>
+          <input type="password" id="confirmar-senha" maxlength="8" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Criar Conta</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL LOGIN -->
+  <div class="modal" id="modal-login">
+    <div class="modal-content">
+      <span class="modal-close" onclick="fecharModal('login')">&times;</span>
+      <h2>Acessar Conta</h2>
+      <form onsubmit="fazerLogin(event)">
+        <div class="form-group">
+          <label>CPF</label>
+          <input type="text" id="cpf-login" placeholder="000.000.000-00" required>
+        </div>
+        <div class="form-group">
+          <label>Senha</label>
+          <input type="password" id="senha-login" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL SOLICITAR CRÉDITO -->
+  <div class="modal" id="modal-solicitar-credito">
+    <div class="modal-content">
+      <span class="modal-close" onclick="fecharModal('solicitar-credito')">&times;</span>
+      <h2>Solicitar Cartão de Crédito</h2>
+      <form onsubmit="solicitarCredito(event)">
+        <div class="form-group">
+          <label>Renda Mensal (R$)</label>
+          <input type="number" id="renda-mensal" placeholder="Ex: 3500" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label>Empresa/Empregador</label>
+          <input type="text" id="emprego" placeholder="Nome da empresa" required>
+        </div>
+        <div class="form-group">
+          <label>Cargo/Função</label>
+          <input type="text" id="cargo" placeholder="Ex: Analista" required>
+        </div>
+        <div class="form-group">
+          <label>Score de Crédito</label>
+          <select id="score-credito" required>
+            <option value="">Selecione seu score</option>
+            <option value="ruim">0 - 300 (Ruim)</option>
+            <option value="regular">301 - 500 (Regular)</option>
+            <option value="bom">501 - 700 (Bom)</option>
+            <option value="muito-bom">701 - 900 (Muito Bom)</option>
+            <option value="excelente">901 - 1000 (Excelente)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tempo de Emprego</label>
+          <select id="tempo-emprego" required>
+            <option value="">Selecione</option>
+            <option value="menos-6">Menos de 6 meses</option>
+            <option value="6-12">6 meses a 1 ano</option>
+            <option value="1-3">1 a 3 anos</option>
+            <option value="mais-3">Mais de 3 anos</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Comprovante de Renda</label>
+          <select id="comprovante-renda" required>
+            <option value="">Selecione</option>
+            <option value="contracheque">Contracheque</option>
+            <option value="declaracao-ir">Declaração de Imposto de Renda</option>
+            <option value="extrato-bancario">Extrato Bancário</option>
+            <option value="decore">DECORE (Autônomo)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label style="display:flex; align-items:center; gap:8px">
+            <input type="checkbox" id="autoriza-consulta" required style="width:auto">
+            Autorizo consulta ao SPC e Serasa
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Enviar Solicitação</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL CONFIGURAÇÕES -->
+  <div class="modal" id="modal-configuracoes">
+    <div class="modal-content">
+      <span class="modal-close" onclick="fecharModal('configuracoes')">&times;</span>
+      <h2>⚙️ Configurações da Conta</h2>
+      <form onsubmit="salvarConfiguracoes(event)">
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" id="config-nome" readonly class="readonly">
+        </div>
+        <div class="form-group">
+          <label>CPF</label>
+          <input type="text" id="config-cpf" readonly class="readonly">
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="config-email" readonly class="readonly">
+        </div>
+        <div class="form-group">
+          <label>Data de Nascimento</label>
+          <input type="date" id="config-data" readonly class="readonly">
+        </div>
+        
+        <hr style="margin: 25px 0; border: 1px solid #ddd">
+        <h3 style="color: #0066CC; margin-bottom: 20px">Alterar Endereço</h3>
+        
+        <div class="form-group">
+          <label>Rua/Avenida</label>
+          <input type="text" id="config-rua" required>
+        </div>
+        <div class="form-group">
+          <label>Número</label>
+          <input type="text" id="config-numero" required>
+        </div>
+        <div class="form-group">
+          <label>Bairro</label>
+          <input type="text" id="config-bairro" required>
+        </div>
+        <div class="form-group">
+          <label>Cidade + UF</label>
+          <input type="text" id="config-cidade" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard" id="dashboard">
+    <div class="dashboard-header">
+      <h2>Olá, <span id="nome-usuario">Usuário</span>! 👋</h2>
+      <div class="header-actions">
+        <button class="btn-config" onclick="abrirModal('configuracoes')">⚙️ Configurações</button>
+        <button class="btn-sair" onclick="sair()">🚪 Sair da Conta</button>
+      </div>
+    </div>
+
+    <div class="saldo-card">
+      <p>Saldo disponível</p>
+      <div class="saldo-valor">R$ 5.432,80</div>
+      <p style="opacity:0.8">Conta: 12345-6 | Agência: 0001</p>
+    </div>
+
+    <div class="nav-tabs">
+      <button class="tab active" onclick="mudarAba('inicio')">🏠 Início</button>
+      <button class="tab" onclick="mudarAba('cartoes')">💳 Cartões</button>
+      <button class="tab" onclick="mudarAba('servicos')">🛎️ Serviços</button>
+      <button class="tab" onclick="mudarAba('investimentos')">📈 Investimentos</button>
+      <button class="tab" onclick="mudarAba('contato')">📞 Fale Conosco</button>
+    </div>
+
+    <!-- ABA INÍCIO -->
+    <div class="tab-content active" id="aba-inicio">
+      <h3>Ofertas e Serviços</h3>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <h4>💳 Cartão de Crédito</h4>
+          <p>Solicite seu cartão com limite pré-aprovado</p>
+          <button class="btn btn-primary" style="margin-top:15px" onclick="mudarAba('cartoes')">Solicitar</button>
+        </div>
+        <div class="servico-card">
+          <h4>🏠 Consórcio Imobiliário</h4>
+          <p>Realize o sonho da casa própria</p>
+          <button class="btn btn-primary" style="margin-top:15px" onclick="mudarAba('servicos')">Ver mais</button>
+        </div>
+        <div class="servico-card">
+          <h4>💵 Empréstimo Pessoal</h4>
+          <p>Taxas especiais a partir de 1,2% ao mês</p>
+          <button class="btn btn-primary" style="margin-top:15px" onclick="mudarAba('servicos')">Simular</button>
+        </div>
+        <div class="servico-card">
+          <h4>✈️ Viagens</h4>
+          <p>Pacotes exclusivos com desconto</p>
+          <button class="btn btn-primary" style="margin-top:15px" onclick="mudarAba('servicos')">Conferir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA CARTÕES -->
+    <div class="tab-content" id="aba-cartoes">
+      <h3>Meus Cartões</h3>
+      
+      <div class="cartao-visual">
+        <h4>Cartão de Débito</h4>
+        <div class="cartao-numero">•••• •••• •••• 8765</div>
+        <p>NOME DO TITULAR</p>
+        <p>Válido até 12/28</p>
+      </div>
+      
+      <div style="margin-top:40px; padding:25px; background:#F5F5F5; border-radius:12px">
+        <h4 style="color:#0066CC; margin-bottom:15px">💳 Solicitar Cartão de Crédito</h4>
+        <p style="margin-bottom:15px">Análise baseada em: Score de crédito, Validação de renda, Consulta SPC e Serasa</p>
+        <button class="btn btn-primary" onclick="abrirModal('solicitar-credito')">Solicitar Agora</button>
+      </div>
+    </div>
+
+    <!-- ABA SERVIÇOS -->
+    <div class="tab-content" id="aba-servicos">
+      <h3>Todos os Serviços</h3>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <h4>🏠 Consórcio Imobiliário</h4>
+          <p><strong>Parcelas a partir de R$ 500/mês</strong></p>
+          <p>Cartas de crédito de 100 mil a 500 mil</p>
+          <p>Sem juros, apenas taxa de administração</p>
+        </div>
+        <div class="servico-card">
+          <h4>🚗 Consórcio de Veículos</h4>
+          <p><strong>Parcelas a partir de R$ 300/mês</strong></p>
+          <p>Realize o sonho do carro novo</p>
+          <p>Prazo de até 100 meses</p>
+        </div>
+        <div class="servico-card">
+          <h4>💵 Empréstimo Pessoal</h4>
+          <p><strong>Taxa a partir de 1,2% a.m.</strong></p>
+          <p>Até R$ 50.000 disponíveis</p>
+          <p>Parcelas em até 48x</p>
+        </div>
+        <div class="servico-card">
+          <h4>🏢 Empréstimo Consignado</h4>
+          <p><strong>Taxa a partir de 0,9% a.m.</strong></p>
+          <p>Desconto direto na folha</p>
+          <p>Até 35% da margem consignável</p>
+        </div>
+        <div class="servico-card">
+          <h4>✈️ Pacotes de Viagem</h4>
+          <p><strong>Descontos de até 30%</strong></p>
+          <p>Nacional e internacional</p>
+          <p>Parcelamento em até 12x sem juros</p>
+        </div>
+        <div class="servico-card">
+          <h4>🛡️ Seguros</h4>
+          <p><strong>Proteção completa</strong></p>
+          <p>Seguro de vida, auto, residencial</p>
+          <p>Assistência 24h</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA INVESTIMENTOS -->
+    <div class="tab-content" id="aba-investimentos">
+      <h3>Investimentos BrasilBanc</h3>
+      <div class="investimentos-grid">
+        <div class="investimento-card">
+          <h4>💰 Poupança Inteligente</h4>
+          <p><strong>Rendimento: 120% do CDI</strong></p>
+          <p>Liquidez diária em dias úteis</p>
+          <p>Sem taxa de administração</p>
+          <p>Rendimento automático</p>
+          <button class="btn btn-primary" style="margin-top:15px">Investir Agora</button>
+        </div>
+        <div class="investimento-card">
+          <h4>📈 Tesouro Direto</h4>
+          <p><strong>A partir de R$ 30</strong></p>
+          <p>Tesouro Selic, Prefixado e IPCA+</p>
+          <p>Baixo risco, garantido pelo governo</p>
+          <p>Taxas competitivas</p>
+          <button class="btn btn-primary" style="margin-top:15px">Começar</button>
+        </div>
+        <div class="investimento-card">
+          <h4>🏦 CDB BrasilBanc</h4>
+          <p><strong>Rendimento: até 115% do CDI</strong></p>
+          <p>Garantido pelo FGC até R$ 250 mil</p>
+          <p>Prazos de 1 a 5 anos</p>
+          <p>Investimento mínimo: R$ 1.000</p>
+          <button class="btn btn-primary" style="margin-top:15px">Simular</button>
+        </div>
+        <div class="investimento-card">
+          <h4>🏖️ Previdência Privada</h4>
+          <p><strong>PGBL e VGBL disponíveis</strong></p>
+          <p>Planeje sua aposentadoria</p>
+          <p>Benefícios fiscais</p>
+          <p>A partir de R$ 100/mês</p>
+          <button class="btn btn-primary" style="margin-top:15px">Contratar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA CONTATO -->
+    <div class="tab-content" id="aba-contato">
+      <h3>Fale Conosco</h3>
+      <div class="contato-info">
+        <div class="contato-item">
+          <div class="contato-icon">📞</div>
+          <div>
+            <h4>SAC - Atendimento ao Cliente</h4>
+            <p><strong>0800 123 4567</strong></p>
+            <p>Seg a Sex: 8h às 20h | Sáb: 8h às 14h</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icon">💬</div>
+          <div>
+            <h4>WhatsApp com Assistente IA</h4>
+            <p><strong>(11) 98765-4321</strong></p>
+            <p>Atendimento 24h com Inteligência Artificial</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icon">✉️</div>
+          <div>
+            <h4>E-mail</h4>
+            <p><strong>contato@brasilbanc.com.br</strong></p>
+            <p>Resposta em até 24 horas úteis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+>>>>>>> 00e888131254155c8b33dd7ea2cfeecd65b3cc35
 </html>
